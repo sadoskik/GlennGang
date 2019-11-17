@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.freefoodtracker.ui.main.MainFragment;
 
@@ -18,8 +20,27 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow();
 
-            Intent i = new Intent(getApplicationContext(), MapsActivity.class);
-            startActivity(i);
+
+            Button next = findViewById(R.id.buttonNext);
+            Button food = findViewById(R.id.buttonAdd);
+
+            next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(), MapsActivity.class);
+                    startActivity(i);
+                }
+            });
+
+            food.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(), AddFood.class);
+                    startActivity(i);
+                }
+            });
+
+
         }
     }
 }
